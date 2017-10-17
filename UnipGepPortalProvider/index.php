@@ -11,7 +11,6 @@ require_once 'service/InstituicaoService.php';
 require_once 'service/CursoService.php';
 require_once 'service/AlunoService.php';
 require_once 'service/PublicacaoService.php';
-require_once 'service/IndicadorService.php';
 require_once 'service/OrientadorService.php';
 require_once 'service/UsuarioService.php';
 

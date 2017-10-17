@@ -9,10 +9,15 @@
 
 				public function Factory() 
 				{
-						$this->user		  = "unipgep";
+						/*$this->user		  = "unipgep";
 						$this->password   = "Unip123#";
 						$this->database   = "unipgep";
-						$this->server     = "unipgep.mysql.dbaas.com.br";
+						$this->server     = "unipgep.mysql.dbaas.com.br";*/
+
+						$this->user		  = "root";
+						$this->password   = "";
+						$this->database   = "unipgep";
+						$this->server     = "localhost";
 				}
 				
 				public function getConnection()

@@ -65,12 +65,12 @@ class OrientadorBusiness
     {
         $orientador = json_decode($json, true);
 
-        $idOrientador = $orientador['idOrientador'];
-        $idInstituicao = $orientador['idInstituicao'];
-        $nome = $orientador['nome'];
-        $cpf = $orientador['cpf'];
-        $titulacao = $orientador['titulacao'];
-        $ativo = $orientador['ativo'];
+        $idOrientador = $orientador[0]['idOrientador'];
+        $idInstituicao = $orientador[0]['idInstituicao'];
+        $nome = $orientador[0]['nome'];
+        $cpf = $orientador[0]['cpf'];
+        $titulacao = $orientador[0]['titulacao'];
+        $ativo = $orientador[0]['ativo'];
 
         $query = "INSERT INTO `orientador` (`idOrientador`, `idInstituicao`, `nome`, `cpf`, `titulacao`, `ativo`) VALUES (NULL, '$idInstituicao', '$nome', '$cpf', '$titulacao', '$ativo');";
 
@@ -91,12 +91,13 @@ class OrientadorBusiness
     {
         $orientador = json_decode($json, true);
 
-        $idOrientador = $orientador['idOrientador'];
-        $idInstituicao = $orientador['idInstituicao'];
-        $nome = $orientador['nome'];
-        $cpf = $orientador['cpf'];
-        $titulacao = $orientador['titulacao'];
-        $ativo = $orientador['ativo'];
+
+        $idOrientador = $orientador[0]['idOrientador'];
+        $idInstituicao = $orientador[0]['idInstituicao'];
+        $nome = $orientador[0]['nome'];
+        $cpf = $orientador[0]['cpf'];
+        $titulacao = $orientador[0]['titulacao'];
+        $ativo = $orientador[0]['ativo'];
         
         $query = "UPDATE `orientador` SET  `nome` = '$nome', `cpf` = '$cpf', `titulacao` = '$titulacao', `ativo` = '$ativo' WHERE `idOrientador` = $idOrientador AND `idInstituicao` = $idInstituicao;";
         
@@ -118,8 +119,8 @@ class OrientadorBusiness
     {
         $orientador = json_decode($json, true);
 
-        $idOrientador = $aluno['idOrientador'];
-        $idInstituicao = $aluno['idInstituicao'];
+        $idOrientador = $orientador[0]['idOrientador'];
+        $idInstituicao = $orientador[0]['idInstituicao'];
     
         $query = "DELETE FROM `orientador` WHERE `idOrientador` = $idOrientador AND `idInstituicao` = $idInstituicao;";
         

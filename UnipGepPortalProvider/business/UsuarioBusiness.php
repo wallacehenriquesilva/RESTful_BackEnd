@@ -1,6 +1,5 @@
 <?php
 require 'vendor/autoload.php';
-require_once("util/Factory.php");
 
 /**
  * @author Wallace e Cia

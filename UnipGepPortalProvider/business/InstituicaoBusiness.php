@@ -59,9 +59,9 @@
                 {
                     $instituicao = json_decode($json, true);
 
-                    $sigla = $instituicao['sigla'];
-                    $descricao = $instituicao['descricao'];
-                    $ativo = $instituicao['ativo'];
+                    $sigla = $instituicao[0]['sigla'];
+                    $descricao = $instituicao[0]['descricao'];
+                    $ativo = $instituicao[0]['ativo'];
 
        
 
@@ -71,7 +71,7 @@
      
                     $collection = $stmt->execute();
 
-                    return $json;
+                    return $collection;
                 }   
 
 
@@ -84,10 +84,10 @@
     {
         $instituicao = json_decode($json, true);
 
-        $idInstituicao = $instituicao['idInstituicao'];
-        $sigla = $instituicao['sigla'];
-        $descricao = $instituicao['descricao'];
-        $ativo = $instituicao['ativo'];
+        $idInstituicao = $instituicao[0]['idInstituicao'];
+        $sigla = $instituicao[0]['sigla'];
+        $descricao = $instituicao[0]['descricao'];
+        $ativo = $instituicao[0]['ativo'];
         
         
         $query = "UPDATE `instituicao` SET  `sigla` = '$sigla', `descricao` = '$descricao', `ativo` = '$ativo' WHERE `idInstituicao` = $idInstituicao;";
@@ -112,7 +112,7 @@
     {
         $instituicao = json_decode($json, true);
 
-        $idInstituicao = $instituicao['idInstituicao'];
+        $idInstituicao = $instituicao[0]['idInstituicao'];
     
         $query = "DELETE FROM `instituicao` WHERE `idInstituicao` = $idInstituicao";
         

@@ -46,10 +46,15 @@ class AlunoBusiness
         $dataNascimento =  $_GET['dataNascimento'];
         $cpf = $_GET['cpf'];
 
-        $query = "SELECT * FROM Aluno WHERE (matricula = '$matricula' OR nome = $nome OR sexo = $sexo OR dataNascimento = $dataNascimento OR cpf = $cpf) AND idAluno = $idAluno AND idInstituicao = $idInstituicao";
+        $query = "SELECT * FROM aluno WHERE `idAluno` = $idAluno AND `idInstituicao` = $idInstituicao AND (`matricula` = '$matricula' OR `nome` = '$nome' OR `sexo` = '$sexo' OR `dataNascimento` = '$dataNascimento' OR `cpf` = '$cpf')";
         $rs = $this->con->getConnection()->query($query);
 
-        $collection = $rs->fetchAll(PDO::FETCH_OBJ);
+
+        if($rs){
+            $collection = $rs->fetchAll(PDO::FETCH_OBJ);
+        }else{
+            echo "Erro";
+        }
         return $collection;
     }
 
@@ -64,14 +69,14 @@ class AlunoBusiness
     {
         $aluno = json_decode($json, true);
 
-        $idOrientador = $aluno['idOrientador'];
-        $idInstituicao = $aluno['idInstituicao'];
-        $matricula = $aluno['matricula'];
-        $nome = $aluno['nome'];
-        $sexo = $aluno['sexo'];
-        $dataNascimento = $aluno['dataNascimento'];
-        $cpf = $aluno['cpf'];
-        $ativo = $aluno['ativo'];
+        $idOrientador = $aluno[0]['idOrientador'];
+        $idInstituicao = $aluno[0]['idInstituicao'];
+        $matricula = $aluno[0]['matricula'];
+        $nome = $aluno[0]['nome'];
+        $sexo = $aluno[0]['sexo'];
+        $dataNascimento = $aluno[0]['dataNascimento'];
+        $cpf = $aluno[0]['cpf'];
+        $ativo = $aluno[0]['ativo'];
 
         $query = "INSERT INTO `aluno` (`idAluno`, `idOrientador`, `idInstituicao`, `matricula`, `nome`, `sexo`, `dataNascimento`, `cpf`, `ativo`) VALUES (NULL, '$idOrientador', '$idInstituicao', '$matricula', '$nome', '$sexo', '$dataNascimento', '$cpf', '$ativo');";
 
@@ -92,12 +97,12 @@ class AlunoBusiness
     {
         $aluno = json_decode($json, true);
 
-        $idAluno = $aluno['idAluno'];
-        $idInstituicao = $aluno['idInstituicao'];
-        $nome = $aluno['nome'];
-        $sexo = $aluno['sexo'];
-        $dataNascimento = $aluno['dataNascimento'];
-        $cpf = $aluno['cpf'];
+        $idAluno = $aluno[0]['idAluno'];
+        $idInstituicao = $aluno[0]['idInstituicao'];
+        $nome = $aluno[0]['nome'];
+        $sexo = $aluno[0]['sexo'];
+        $dataNascimento = $aluno[0]['dataNascimento'];
+        $cpf = $aluno[0]['cpf'];
         
         $query = "UPDATE `aluno` SET  `nome` = '$nome', `sexo` = '$sexo', `dataNascimento` = '$dataNascimento', `cpf` = '$cpf' WHERE `idAluno` = $idAluno AND `idInstituicao` = $idInstituicao;";
         
@@ -119,8 +124,8 @@ class AlunoBusiness
     {
         $aluno = json_decode($json, true);
 
-        $idAluno = $aluno['idAluno'];
-        $idInstituicao = $aluno['idInstituicao'];
+        $idAluno = $aluno[0]['idAluno'];
+        $idInstituicao = $aluno[0]['idInstituicao'];
     
         $query = "DELETE FROM `aluno` WHERE `idAluno` = $idAluno AND `idInstituicao` = $idInstituicao;";
         
