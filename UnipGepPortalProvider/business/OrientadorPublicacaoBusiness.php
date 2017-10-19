@@ -3,20 +3,21 @@
 require 'vendor/autoload.php';
 require_once("util/Factory.php");
 require_once("interface/PublicacaoInterface.php");
+require_once("model/PublicacaoDto.php");
 
 
 /**
  * @author Wallace e Cia
  *
  */
-class OrientadorPublicacaoBusiness 
+class OrientadorPublicacaoBusiness implements PublicacaoInterface
 {
 
     public $con;
 
     /**
-    * Método construtor da classe e realiza a conexão com o BD
-    */
+     * Método construtor da classe e realiza a conexão com o BD
+     */
     public function OrientadorPublicacaoBusiness()
     {
         $this->con = new Factory();
@@ -35,17 +36,18 @@ class OrientadorPublicacaoBusiness
         return $collection;
     }
 
-   /**
+    /**
      * Função responsável por pesquisar as publicações do orientador logado.
+     * * @param PublicacaoDto $publicacaoDto dto da publicação que sera pesquisada.
      * @return String json contando os dados do publicacao do orientador logado.
      */
-    public function find()
+    public function find(PublicacaoDto $publicacaoDto)
     {
-        
-        $idOrientador = $_GET['idOrientador'];
-        $idInstituicao = $_GET['idInstituicao'];
-
-        $query = "SELECT * FROM publicacao as p INNER JOIN publicacaoorientador as po ON p.idPublicacao = po.idPublicacao where po.idOrientador = $idOrientador and p.idInstituicao = $idInstituicao";
+        $query = "SELECT * FROM publicacao AS p "
+            . "INNER JOIN publicacaoorientador AS po "
+            . "ON p.idPublicacao = po.idPublicacao "
+            . "WHERE po.idOrientador = $publicacaoDto->getIdOrientador "
+            . "AND p.idInstituicao = $publicacaoDto->getIdInstituicao()";
         $rs = $this->con->getConnection()->query($query);
 
         $collection = $rs->fetchAll(PDO::FETCH_OBJ);
@@ -53,54 +55,48 @@ class OrientadorPublicacaoBusiness
     }
 
 
-
-  /**
+    /**
      * Função responsável por inserir publicacoes do Orientador.
-     * @param $json String json contendo os dados da request.
+     * @param PublicacaoDto $publicacaoDto dto da publicação que sera inserida.
      * @return String json contendo a resposta da solicitação de inserção.
      */
-    public function insert($json)
+    public function insert(PublicacaoDto $publicacaoDto)
     {
-        $publicacao = json_decode($json, true);
+        $query = "INSERT INTO `publicacao` (`idPublicacao`, `idInstituicao`, `tipo`, `dataPublicacao`, `titulo`, `resumo`, `palavrasChave`, `ativo`) "
+            . "VALUES (NULL, $publicacaoDto->getIdInstituicao(), "
+            . "$publicacaoDto->getTipo(), "
+            . "$publicacaoDto->getDataPublicacao(), "
+            . "$publicacaoDto->getTitulo(), "
+            . "$publicacaoDto->getResumo(), "
+            . "$publicacaoDto->getPalavrasChave(), "
+            . "$publicacaoDto->getAtivo());";
 
-        $idInstituicao = $publicacao[0]['idInstituicao'];
-        $tipo = $publicacao[0]['tipo'];
-        $dataPublicacao = $publicacao[0]['dataPublicacao'];
-        $titulo = $publicacao[0]['titulo'];
-        $resumo = $publicacao[0]['resumo'];
-        $palavrasChave = $publicacao[0]['palavrasChave'];
-        $ativo = $publicacao[0]['ativo'];
+        $stmt = $this->con->getConnection()->prepare($query);
 
-        $query = "INSERT INTO `publicacao` (`idPublicacao`, `idInstituicao`, `tipo`, `dataPublicacao`, `titulo`, `resumo`, `palavrasChave`, `ativo`) VALUES (NULL, '$idInstituicao', '$tipo', '$dataPublicacao', '$titulo', '$resumo', '$palavrasChave', '$ativo');";
-
-        $stmt =  $this->con->getConnection()->prepare($query);
-     
         $collection = $stmt->execute();
 
         return $collection;
     }
 
 
- /**
+    /**
      * Função responsável por realizar o update dos dados da publicacao do Orientador.
-     * @param $json String json contendo os dados da request.
+     * @param PublicacaoDto $publicacaoDto dto da publicação que sera atualizada.
      * @return string json contendo a resposta da solicitação de update da publicacao.
      */
-    public function update($json)
+    public function update(PublicacaoDto $publicacaoDto)
     {
-        $publicacao = json_decode($json, true);
+        $query = "UPDATE `publicacao` SET  "
+            . "`idInstituicao` = $publicacaoDto->getIdInstituicao(), "
+            . "`tipo` = $publicacaoDto->getTipo(), "
+            . "`dataPublicacao` = $publicacaoDto->getDataPublicacao(), "
+            . "`titulo` = $publicacaoDto->getTitulo(), "
+            . "`resumo` = $publicacaoDto->getResumo(), "
+            . "`palavrasChave` = $publicacaoDto->getPalavrasChave(), "
+            . "`ativo` = $publicacaoDto->getAtivo() "
+            . "WHERE `idAluno` = $publicacaoDto->getIdAluno() "
+            . "AND `idInstituicao` = $publicacaoDto->geIddInstituicao();";
 
-        $idPublicacao = $publicacao[0]['idInstituicao'];
-        $idInstituicao = $publicacao[0]['idInstituicao'];
-        $tipo = $publicacao[0]['tipo'];
-        $dataPublicacao = $publicacao[0]['dataPublicacao'];
-        $titulo = $publicacao[0]['titulo'];
-        $resumo = $publicacao[0]['resumo'];
-        $palavrasChave = $publicacao[0]['palavrasChave'];
-        $ativo = $publicacao[0]['ativo'];
-        
-        $query = "UPDATE `publicacao` SET  `idInstituicao` = '$idInstituicao', `tipo` = '$tipo', `dataPublicacao` = '$dataPublicacao', `titulo` = '$titulo', `resumo` = '$resumo', `palavrasChave` = '$palavrasChave', `ativo` = '$ativo' WHERE `idAluno` = $idAluno AND `idInstituicao` = $idInstituicao;;";
-        
         $rs = $this->con->getConnection()->prepare($query);
 
         $collection = $rs->execute();
@@ -109,22 +105,17 @@ class OrientadorPublicacaoBusiness
     }
 
 
-
-
-     /**
+    /**
      * Função responsávle por realizar a exclusão da publicação do orientador.
-     * @param $json String json contendo os dados da request.
+     * @param PublicacaoDto $publicacaoDto dto da publicação que sera apagada.
      * @return String json contendo a resposta da solicitação de exclusão.
      */
-    public function delete($json)
+    public function delete(PublicacaoDto $publicacaoDto)
     {
-        $publicacao = json_decode($json, true);
+        $query = "DELETE FROM `publicacao` "
+            . "WHERE `idPublicacao` = $publicacaoDto->getIdPublicacao() "
+            . "AND `idInstituicao` = $publicacaoDto->getIdPublicacao();";
 
-        $idPublicacao = $publicacao[0]['idPublicacao'];
-        $idPublicacao = $publicacao[0]['idInstituicao'];
-    
-        $query = "DELETE FROM `publicacao` WHERE `idPublicacao` = $idPublicacao AND `idInstituicao` = $idInstituicao;";
-        
         $rs = $this->con->getConnection()->prepare($query);
 
         $collection = $rs->execute();

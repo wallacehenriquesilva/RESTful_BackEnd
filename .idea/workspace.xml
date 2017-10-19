@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cab545c2-ea05-46e1-9da0-fcc5fc0e8166" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UnipGepPortalProvider/business/AlunoBusiness.php" afterPath="$PROJECT_DIR$/UnipGepPortalProvider/business/AlunoBusiness.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UnipGepPortalProvider/business/AlunoPublicacaoBusiness.php" afterPath="$PROJECT_DIR$/UnipGepPortalProvider/business/AlunoPublicacaoBusiness.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UnipGepPortalProvider/business/OrientadorPublicacaoBusiness.php" afterPath="$PROJECT_DIR$/UnipGepPortalProvider/business/OrientadorPublicacaoBusiness.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UnipGepPortalProvider/business/PublicacaoBusiness.php" afterPath="$PROJECT_DIR$/UnipGepPortalProvider/business/PublicacaoBusiness.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UnipGepPortalProvider/interface/PublicacaoInterface.php" afterPath="$PROJECT_DIR$/UnipGepPortalProvider/interface/PublicacaoInterface.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UnipGepPortalProvider/service/PublicacaoService.php" afterPath="$PROJECT_DIR$/UnipGepPortalProvider/service/PublicacaoService.php" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="PublicacaoService.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UnipGepPortalProvider/service/PublicacaoService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="11" column="54" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PublicacaoBusiness.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UnipGepPortalProvider/business/PublicacaoBusiness.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="99" column="5" lean-forward="false" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="78" />
+              <folding>
+                <marker date="1508438860224" expanded="true" signature="531:555" ph="SELECT * FRO... Publicacao" />
+                <marker date="1508438860224" expanded="true" signature="1036:1134" ph="SELECT * FRO... publicacao" />
+                <marker date="1508438860224" expanded="true" signature="1587:1784" ph="INSERT INTO `publicacao`... " />
+                <marker date="1508438860224" expanded="true" signature="1587:1828" ph="INSERT INTO `publicacao`... " />
+                <marker date="1508438860224" expanded="true" signature="1587:1882" ph="INSERT INTO `publicacao`... " />
+                <marker date="1508438860224" expanded="true" signature="1587:1928" ph="INSERT INTO `publicacao`... " />
+                <marker date="1508438860224" expanded="true" signature="1587:1974" ph="INSERT INTO `publicacao`... " />
+                <marker date="1508438860224" expanded="true" signature="1587:2027" ph="INSERT INTO `publicacao`... " />
+                <marker date="1508438860224" expanded="true" signature="1587:2072" ph="INSERT INTO `publicacao`... " />
+                <marker date="1508438860224" expanded="true" signature="2555:2578" ph="UPDATE `publ... " />
+                <marker date="1508438860224" expanded="true" signature="2555:2650" ph="UPDATE `publ... " />
+                <marker date="1508438860224" expanded="true" signature="2555:2703" ph="UPDATE `publ... " />
+                <marker date="1508438860224" expanded="true" signature="2555:2776" ph="UPDATE `publ... " />
+                <marker date="1508438860224" expanded="true" signature="2555:2833" ph="UPDATE `publ... " />
+                <marker date="1508438860224" expanded="true" signature="2555:2890" ph="UPDATE `publ... " />
+                <marker date="1508438860224" expanded="true" signature="2555:2961" ph="UPDATE `publ... " />
+                <marker date="1508438860224" expanded="true" signature="2555:2989" ph="UPDATE `publ... " />
+                <marker date="1508438860224" expanded="true" signature="2555:3051" ph="UPDATE `publ... " />
+                <marker date="1508438860224" expanded="true" signature="2555:3119" ph="UPDATE `publ... " />
+                <marker date="1508438860224" expanded="true" signature="2555:3134" ph="UPDATE `publ... " />
+                <marker date="1508438860224" expanded="true" signature="2555:3153" ph="UPDATE `publ... " />
+                <marker date="1508438860224" expanded="true" signature="3609:3633" ph="DELETE FROM " />
+                <marker date="1508438860224" expanded="true" signature="3609:3674" ph="DELETE FROM " />
+                <marker date="1508438860224" expanded="true" signature="3609:3747" ph="DELETE FROM " />
+                <marker date="1508438860224" expanded="true" signature="3609:3748" ph="DELETE FROM " />
+                <marker date="1508438860224" expanded="true" signature="3609:3780" ph="DELETE FROM " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AlunoDto.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UnipGepPortalProvider/model/AlunoDto.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1186">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrientadorPublicacaoBusiness.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UnipGepPortalProvider/business/OrientadorPublicacaoBusiness.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding>
+                <marker date="1508439812512" expanded="true" signature="691:715" ph="select * fro... Publicacao" />
+                <marker date="1508439812512" expanded="true" signature="1202:1231" ph="SELECT * FRO... publicacao" />
+                <marker date="1508439812512" expanded="true" signature="1202:1283" ph="SELECT * FRO... publicacao" />
+                <marker date="1508439812512" expanded="true" signature="1202:1286" ph="SELECT * FRO... publicacao" />
+                <marker date="1508439812512" expanded="true" signature="1202:1339" ph="SELECT * FRO... publicacao" />
+                <marker date="1508439812512" expanded="true" signature="1202:1381" ph="SELECT * FRO... publicacao" />
+                <marker date="1508439812512" expanded="true" signature="1202:1452" ph="SELECT * FRO... publicacao" />
+                <marker date="1508439812512" expanded="true" signature="1202:1486" ph="SELECT * FRO... publicacao" />
+                <marker date="1508439812512" expanded="true" signature="1954:2439" ph="INSERT INTO `publicacao`... " />
+                <marker date="1508439812512" expanded="true" signature="2937:3535" ph="UPDATE `publ... " />
+                <marker date="1508439812512" expanded="true" signature="4006:4031" ph="DELETE FROM " />
+                <marker date="1508439812512" expanded="true" signature="4006:4177" ph="DELETE FROM " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AlunoPublicacaoBusiness.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UnipGepPortalProvider/business/AlunoPublicacaoBusiness.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="714">
+              <caret line="42" column="53" lean-forward="false" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
+              <folding>
+                <marker date="1508439812471" expanded="true" signature="670:694" ph="SELECT * FRO... Publicacao" />
+                <marker date="1508439812471" expanded="true" signature="676:694" ph="select * fro... Publicacao" />
+                <marker date="1508439812471" expanded="true" signature="1169:1198" ph="SELECT * FRO... publicacao" />
+                <marker date="1508439812471" expanded="true" signature="1169:1248" ph="SELECT * FRO... publicacao" />
+                <marker date="1508439812471" expanded="true" signature="1169:1301" ph="SELECT * FRO... publicacao" />
+                <marker date="1508439812471" expanded="true" signature="1169:1338" ph="SELECT * FRO... publicacao" />
+                <marker date="1508439812471" expanded="true" signature="1169:1407" ph="SELECT * FRO... publicacao" />
+                <marker date="1508439812471" expanded="true" signature="1169:1441" ph="SELECT * FRO... publicacao" />
+                <marker date="1508439812471" expanded="true" signature="1904:2389" ph="INSERT INTO `publicacao`... " />
+                <marker date="1508439812471" expanded="true" signature="2388:2389" ph="INSERT INTO `publicacao`... " />
+                <marker date="1508439812471" expanded="true" signature="2882:2907" ph="UPDATE `publ... " />
+                <marker date="1508439812471" expanded="true" signature="2882:3480" ph="UPDATE `publ... " />
+                <marker date="1508439812471" expanded="true" signature="3946:4117" ph="DELETE FROM " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PublicacaoDto.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UnipGepPortalProvider/model/PublicacaoDto.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AlunoService.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/UnipGepPortalProvider/service/AlunoService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/UnipGepPortalProvider/business/PublicacaoBusiness.php" />
+        <option value="$PROJECT_DIR$/UnipGepPortalProvider/service/PublicacaoService.php" />
+        <option value="$PROJECT_DIR$/UnipGepPortalProvider/business/OrientadorPublicacaoBusiness.php" />
+        <option value="$PROJECT_DIR$/UnipGepPortalProvider/interface/PublicacaoInterface.php" />
+        <option value="$PROJECT_DIR$/UnipGepPortalProvider/business/AlunoPublicacaoBusiness.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="697" />
+    <option name="height" value="371" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="RESTful_BackEnd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RESTful_BackEnd" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="RESTful_BackEnd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RESTful_BackEnd" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="UnipGepPortalProvider" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="RESTful_BackEnd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RESTful_BackEnd" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="UnipGepPortalProvider" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="business" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="RESTful_BackEnd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RESTful_BackEnd" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="UnipGepPortalProvider" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="service" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cab545c2-ea05-46e1-9da0-fcc5fc0e8166" name="Default" comment="" />
+      <created>1508438304799</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1508438304799</updated>
+      <workItem from="1508438311633" duration="1397000" />
+      <workItem from="1508440102668" duration="380000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1777000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/UnipGepPortalProvider/business/AlunoPublicacaoBusiness.php</url>
+          <line>47</line>
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/UnipGepPortalProvider/service/PublicacaoService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="54" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UnipGepPortalProvider/business/PublicacaoBusiness.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1683">
+          <caret line="99" column="5" lean-forward="false" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="78" />
+          <folding>
+            <marker date="1508438860224" expanded="true" signature="531:555" ph="SELECT * FRO... Publicacao" />
+            <marker date="1508438860224" expanded="true" signature="1036:1134" ph="SELECT * FRO... publicacao" />
+            <marker date="1508438860224" expanded="true" signature="1587:1784" ph="INSERT INTO `publicacao`... " />
+            <marker date="1508438860224" expanded="true" signature="1587:1828" ph="INSERT INTO `publicacao`... " />
+            <marker date="1508438860224" expanded="true" signature="1587:1882" ph="INSERT INTO `publicacao`... " />
+            <marker date="1508438860224" expanded="true" signature="1587:1928" ph="INSERT INTO `publicacao`... " />
+            <marker date="1508438860224" expanded="true" signature="1587:1974" ph="INSERT INTO `publicacao`... " />
+            <marker date="1508438860224" expanded="true" signature="1587:2027" ph="INSERT INTO `publicacao`... " />
+            <marker date="1508438860224" expanded="true" signature="1587:2072" ph="INSERT INTO `publicacao`... " />
+            <marker date="1508438860224" expanded="true" signature="2555:2578" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="2555:2650" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="2555:2703" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="2555:2776" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="2555:2833" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="2555:2890" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="2555:2961" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="2555:2989" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="2555:3051" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="2555:3119" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="2555:3134" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="2555:3153" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="3609:3633" ph="DELETE FROM " />
+            <marker date="1508438860224" expanded="true" signature="3609:3674" ph="DELETE FROM " />
+            <marker date="1508438860224" expanded="true" signature="3609:3747" ph="DELETE FROM " />
+            <marker date="1508438860224" expanded="true" signature="3609:3748" ph="DELETE FROM " />
+            <marker date="1508438860224" expanded="true" signature="3609:3780" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UnipGepPortalProvider/business/OrientadorPublicacaoBusiness.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <marker date="1508439812512" expanded="true" signature="691:715" ph="select * fro... Publicacao" />
+            <marker date="1508439812512" expanded="true" signature="1202:1231" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812512" expanded="true" signature="1202:1283" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812512" expanded="true" signature="1202:1286" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812512" expanded="true" signature="1202:1339" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812512" expanded="true" signature="1202:1381" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812512" expanded="true" signature="1202:1452" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812512" expanded="true" signature="1202:1486" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812512" expanded="true" signature="1954:2439" ph="INSERT INTO `publicacao`... " />
+            <marker date="1508439812512" expanded="true" signature="2937:3535" ph="UPDATE `publ... " />
+            <marker date="1508439812512" expanded="true" signature="4006:4031" ph="DELETE FROM " />
+            <marker date="1508439812512" expanded="true" signature="4006:4177" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UnipGepPortalProvider/business/AlunoPublicacaoBusiness.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="60" lean-forward="false" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
+          <folding>
+            <marker date="1508439812471" expanded="true" signature="670:694" ph="SELECT * FRO... Publicacao" />
+            <marker date="1508439812471" expanded="true" signature="676:694" ph="select * fro... Publicacao" />
+            <marker date="1508439812471" expanded="true" signature="1169:1198" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812471" expanded="true" signature="1169:1248" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812471" expanded="true" signature="1169:1301" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812471" expanded="true" signature="1169:1338" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812471" expanded="true" signature="1169:1407" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812471" expanded="true" signature="1169:1441" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812471" expanded="true" signature="1904:2389" ph="INSERT INTO `publicacao`... " />
+            <marker date="1508439812471" expanded="true" signature="2388:2389" ph="INSERT INTO `publicacao`... " />
+            <marker date="1508439812471" expanded="true" signature="2882:2907" ph="UPDATE `publ... " />
+            <marker date="1508439812471" expanded="true" signature="2882:3480" ph="UPDATE `publ... " />
+            <marker date="1508439812471" expanded="true" signature="3946:4117" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UnipGepPortalProvider/service/PublicacaoService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="11" column="54" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UnipGepPortalProvider/business/OrientadorPublicacaoBusiness.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <marker date="1508439812512" expanded="true" signature="691:715" ph="select * fro... Publicacao" />
+            <marker date="1508439812512" expanded="true" signature="1202:1231" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812512" expanded="true" signature="1202:1283" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812512" expanded="true" signature="1202:1286" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812512" expanded="true" signature="1202:1339" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812512" expanded="true" signature="1202:1381" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812512" expanded="true" signature="1202:1452" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812512" expanded="true" signature="1202:1486" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812512" expanded="true" signature="1954:2439" ph="INSERT INTO `publicacao`... " />
+            <marker date="1508439812512" expanded="true" signature="2937:3535" ph="UPDATE `publ... " />
+            <marker date="1508439812512" expanded="true" signature="4006:4031" ph="DELETE FROM " />
+            <marker date="1508439812512" expanded="true" signature="4006:4177" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UnipGepPortalProvider/model/PublicacaoDto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UnipGepPortalProvider/interface/PublicacaoInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="2" lean-forward="true" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UnipGepPortalProvider/business/AlunoPublicacaoBusiness.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" column="53" lean-forward="false" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
+          <folding>
+            <marker date="1508439812471" expanded="true" signature="670:694" ph="SELECT * FRO... Publicacao" />
+            <marker date="1508439812471" expanded="true" signature="676:694" ph="select * fro... Publicacao" />
+            <marker date="1508439812471" expanded="true" signature="1169:1198" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812471" expanded="true" signature="1169:1248" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812471" expanded="true" signature="1169:1301" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812471" expanded="true" signature="1169:1338" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812471" expanded="true" signature="1169:1407" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812471" expanded="true" signature="1169:1441" ph="SELECT * FRO... publicacao" />
+            <marker date="1508439812471" expanded="true" signature="1904:2389" ph="INSERT INTO `publicacao`... " />
+            <marker date="1508439812471" expanded="true" signature="2388:2389" ph="INSERT INTO `publicacao`... " />
+            <marker date="1508439812471" expanded="true" signature="2882:2907" ph="UPDATE `publ... " />
+            <marker date="1508439812471" expanded="true" signature="2882:3480" ph="UPDATE `publ... " />
+            <marker date="1508439812471" expanded="true" signature="3946:4117" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UnipGepPortalProvider/business/PublicacaoBusiness.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="99" column="5" lean-forward="false" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="78" />
+          <folding>
+            <marker date="1508438860224" expanded="true" signature="531:555" ph="SELECT * FRO... Publicacao" />
+            <marker date="1508438860224" expanded="true" signature="1036:1134" ph="SELECT * FRO... publicacao" />
+            <marker date="1508438860224" expanded="true" signature="1587:1784" ph="INSERT INTO `publicacao`... " />
+            <marker date="1508438860224" expanded="true" signature="1587:1828" ph="INSERT INTO `publicacao`... " />
+            <marker date="1508438860224" expanded="true" signature="1587:1882" ph="INSERT INTO `publicacao`... " />
+            <marker date="1508438860224" expanded="true" signature="1587:1928" ph="INSERT INTO `publicacao`... " />
+            <marker date="1508438860224" expanded="true" signature="1587:1974" ph="INSERT INTO `publicacao`... " />
+            <marker date="1508438860224" expanded="true" signature="1587:2027" ph="INSERT INTO `publicacao`... " />
+            <marker date="1508438860224" expanded="true" signature="1587:2072" ph="INSERT INTO `publicacao`... " />
+            <marker date="1508438860224" expanded="true" signature="2555:2578" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="2555:2650" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="2555:2703" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="2555:2776" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="2555:2833" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="2555:2890" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="2555:2961" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="2555:2989" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="2555:3051" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="2555:3119" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="2555:3134" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="2555:3153" ph="UPDATE `publ... " />
+            <marker date="1508438860224" expanded="true" signature="3609:3633" ph="DELETE FROM " />
+            <marker date="1508438860224" expanded="true" signature="3609:3674" ph="DELETE FROM " />
+            <marker date="1508438860224" expanded="true" signature="3609:3747" ph="DELETE FROM " />
+            <marker date="1508438860224" expanded="true" signature="3609:3748" ph="DELETE FROM " />
+            <marker date="1508438860224" expanded="true" signature="3609:3780" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UnipGepPortalProvider/model/AlunoDto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1186">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UnipGepPortalProvider/service/AlunoService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

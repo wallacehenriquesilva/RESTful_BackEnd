@@ -65,7 +65,7 @@ class AlunoBusiness
         $query = "INSERT INTO `aluno`"
             . " (`idAluno`, `idOrientador`, `idInstituicao`, `matricula`, `nome`, `sexo`, `dataNascimento`, `cpf`, `ativo`) "
             . "VALUES (NULL, $alunoDto->getIdOrientador(), "
-            . " $alunoDto->getIdInstituicao(), "
+            . "$alunoDto->getIdInstituicao(), "
             . "$alunoDto->getMatricula(),g"
             . "$alunoDto->getNomeetSexo"
             . "$alunoDto->getSexo()"

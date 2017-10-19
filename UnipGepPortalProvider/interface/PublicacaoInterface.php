@@ -1,4 +1,5 @@
 <?php
+require_once("model/PublicacaoDto.php");
 
 /**
  * Interface da classe de publicação.
@@ -9,12 +10,13 @@ interface publicacaoInterface
 {
     public function findAll();
 
-    public function find();
-    
-    public function insert($json);
+    public function find(PublicacaoDto $publicacaoDto);
 
-    public function update($json);
+    public function insert(PublicacaoDto $publicacaoDto);
 
-    public function delete($json);
+    public function update(PublicacaoDto $publicacaoDto);
+
+    public function delete(PublicacaoDto $publicacaoDto);
 }
+
 ?>
