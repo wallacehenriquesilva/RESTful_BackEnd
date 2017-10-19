@@ -28,9 +28,7 @@ class AlunoService
      */
     public function findAll()
     {
-        $alunoBusiness = new AlunoBusiness();
-        $collection = $alunoBusiness->findAll();
-        return json_encode($collection);
+        return json_encode($this->alunoBusiness->findAll());
     }
 
 
@@ -40,7 +38,6 @@ class AlunoService
      */
     public function find()
     {
-
         $this->alunoDto->setIdAluno($_GET['idAluno']);
         $this->alunoDto->setIdInstituicao($_GET['idInstituicao']);
         $this->alunoDto->setMatricula($_GET['matricula']);
@@ -49,9 +46,7 @@ class AlunoService
         $this->alunoDto->setDataNascimento($_GET['dataNascimento']);
         $this->alunoDto->setCpf($_GET['cpf']);
 
-        $alunoBusiness = new AlunoBusiness();
-        $collection = $alunoBusiness->find($this->alunoDto);
-        return json_encode($collection);
+        return json_encode($this->alunoBusiness->find($this->alunoDto));
     }
 
 
@@ -62,9 +57,7 @@ class AlunoService
      */
     public function insert($json)
     {
-        $alunoBusiness = new AlunoBusiness();
-        $collection = $alunoBusiness->insert($this->readJson($json));
-        return json_encode($collection);
+        return json_encode($this->alunoBusiness->insert($this->readJson($json)));
     }
 
 
@@ -75,9 +68,7 @@ class AlunoService
      */
     public function update($json)
     {
-        $alunoBusiness = new AlunoBusiness();
-        $collection = $alunoBusiness->update($this->readJson($json));
-        return json_encode($collection);
+        return json_encode($this->alunoBusiness->update($this->readJson($json)));
     }
 
 
@@ -88,9 +79,7 @@ class AlunoService
      */
     public function delete($json)
     {
-        $alunoBusiness = new AlunoBusiness();
-        $collection = $alunoBusiness->delete($this->readJson($json));
-        return json_encode($collection);
+        return json_encode($this->alunoBusiness->delete($this->readJson($json)));
     }
 
     /**
@@ -101,9 +90,7 @@ class AlunoService
     {
         $this->alunoDto->setIdInstituicao($_GET['idInstituicao']);
 
-        $alunoBusiness = new AlunoBusiness();
-        $collection = $alunoBusiness->rank5($this->alunoDto);
-        return json_encode($collection);
+        return json_encode($this->alunoBusiness->rank5($this->alunoDto));
     }
 
     /**
@@ -114,9 +101,7 @@ class AlunoService
     {
         $this->alunoDto->setIdInstituicao($_GET['idInstituicao']);
 
-        $alunoBusiness = new AlunoBusiness();
-        $collection = $alunoBusiness->status($this->alunoDto);
-        return json_encode($collection);
+        return json_encode($this->alunoBusiness->status($this->alunoDto));
     }
 
     /**

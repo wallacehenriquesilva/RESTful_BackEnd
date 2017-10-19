@@ -29,10 +29,7 @@ class InstituicaoService
      */
     public function findAll()
     {
-        $instituicaoBusiness = new InstituicaoBusiness();
-        $collection = $instituicaoBusiness->findAll();
-        echo json_encode($collection);
-        return json_encode($collection);
+        return json_encode($this->instituicaoBusiness->findAll());
     }
 
     /**
@@ -42,15 +39,7 @@ class InstituicaoService
      */
     public function insert($json)
     {
-        $instituicao = json_decode($json, true);
-
-        $this->instituicaoDto->setSigla($instituicao[0]['sigla']);
-        $this->instituicaoDto->setDescricao($instituicao[0]['descricao']);
-        $this->instituicaoDto->setAtivo($instituicao[0]['ativo']);
-
-        $instituicaoBusiness = new InstituicaoBusiness();
-        $collection = $instituicaoBusiness->insert($json);
-        return json_encode($collection);
+        return json_encode($this->instituicaoBusiness->insert($this->readJson($json)));
     }
 
 
@@ -62,9 +51,7 @@ class InstituicaoService
     {
         $this->instituicaoDto->setIdInstituicao($_GET['idInstituicao']);
 
-        $instituicaoBusiness = new InstituicaoBusiness();
-        $collection = $instituicaoBusiness->find($this->instituicaoDto);
-        return json_encode($collection);
+        return json_encode($this->instituicaoBusiness->find($this->instituicaoDto));
     }
 
 
@@ -75,16 +62,7 @@ class InstituicaoService
      */
     public function update($json)
     {
-        $instituicao = json_decode($json, true);
-
-        $this->instituicaoDto->setIdInstituicao($instituicao[0]['idInstituicao']);
-        $this->instituicaoDto->setSigla($instituicao[0]['sigla']);
-        $this->instituicaoDto->setDescricao($instituicao[0]['descricao']);
-        $this->instituicaoDto->setAtivo($instituicao[0]['ativo']);
-
-        $instituicaoBusiness = new InstituicaoBusiness();
-        $collection = $instituicaoBusiness->update($json);
-        return json_encode($collection);
+        return json_encode($this->instituicaoBusiness->update($this->readJson($json)));
     }
 
 
@@ -95,28 +73,31 @@ class InstituicaoService
      */
     public function delete($json)
     {
-        $instituicao = json_decode($json, true);
-
-        $this->instituicaoDto->setIdInstituicao($instituicao[0]['idInstituicao']);
-
-        $instituicaoBusiness = new InstituicaoBusiness();
-        $collection = $instituicaoBusiness->delete($this->instituicaoDto);
-        return json_encode($collection);
+        return json_encode($this->instituicaoBusiness->delete($this->readJson($json)));
     }
 
     /**
      * Função responsável por pegar os dados do painel indicador.
-     * @param $json String json contendo os dados da request.
      * @return String json com os dados do painel indicador.
      */
     public function indicador()
     {
         $this->instituicaoDto->setIdInstituicao($_GET['idInstituicao']);
 
-        $instituicaoBusiness = new InstituicaoBusiness();
-        $collection = $instituicaoBusiness->indicador($this->instituicaoDto);
-        echo json_encode($collection);
-        return json_encode($collection);
+        return json_encode($this->instituicaoBusiness->indicador($this->instituicaoDto));
+    }
+
+
+    public function readJson($json): InstituicaoDto
+    {
+        $instituicao = json_decode($json, true);
+
+        $this->instituicaoDto->setIdInstituicao($instituicao[0]['idInstituicao']);
+        $this->instituicaoDto->setSigla($instituicao[0]['sigla']);
+        $this->instituicaoDto->setDescricao($instituicao[0]['descricao']);
+        $this->instituicaoDto->setAtivo($instituicao[0]['ativo']);
+
+        return $this->instituicaoDto;
     }
 }
 

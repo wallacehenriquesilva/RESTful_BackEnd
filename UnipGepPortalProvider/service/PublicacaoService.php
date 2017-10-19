@@ -9,7 +9,7 @@ require_once("model/PublicacaoDto.php");
  * @author Wallace e Cia
  *
  */
-class PublicacaoService implements PublicacaoInterface
+class PublicacaoService
 {
 
     var $publicacaoBusiness;
@@ -19,21 +19,11 @@ class PublicacaoService implements PublicacaoInterface
      * Método construtor da classe
      *
      */
-    public function PublicacaoService($tipo)
+    public function PublicacaoService(PublicacaoInterface $publicacao)
     {
-        $publicacaoDto = new PublicacaoDto();
+        $this->publicacaoDto = new PublicacaoDto();
 
-        switch ($tipo) {
-            case "orientador":
-                $this->publicacaoBusiness = new OrientadorPublicacaoBusiness();
-                break;
-            case "aluno":
-                $this->publicacaoBusiness = new AluPublicacaoBusiness();
-                break;
-            case "admin":
-                $this->publicacaoBusiness = new PublicacaoBusiness();
-                break;
-        }
+        $this->publicacaoBusiness = $publicacao;
     }
 
     /**
@@ -44,8 +34,7 @@ class PublicacaoService implements PublicacaoInterface
     {
         $this->publicacaoDto->setIdInstituicao($_GET['idInstituicao']);
 
-        $collection = $this->publicacaoBusiness->findAll();
-        return json_encode($collection);
+        return json_encode($this->publicacaoBusiness->findAll());
     }
 
     /**
@@ -54,8 +43,7 @@ class PublicacaoService implements PublicacaoInterface
      */
     public function find()
     {
-        $collection = $this->publicacaoBusiness->find();
-        return json_encode($collection);
+        return json_encode($this->publicacaoBusiness->find());
     }
 
 
@@ -66,8 +54,7 @@ class PublicacaoService implements PublicacaoInterface
      */
     public function insert($json)
     {
-        $collection = $this->publicacaoBusiness->insert($this->readJson($json));
-        return json_encode($collection);
+        return json_encode($this->publicacaoBusiness->insert($this->readJson($json)));
     }
 
 
@@ -78,8 +65,7 @@ class PublicacaoService implements PublicacaoInterface
      */
     public function update($json)
     {
-        $collection = $this->publicacaoBusiness->update($this->readJson($json));
-        return json_encode($collection);
+        return json_encode($this->publicacaoBusiness->update($this->readJson($json)));
     }
 
 
@@ -90,8 +76,7 @@ class PublicacaoService implements PublicacaoInterface
      */
     public function delete($json)
     {
-        $collection = $this->publicacaoBusiness->delete($this->readJson($json));
-        return json_encode($collection);
+        return json_encode($this->publicacaoBusiness->delete($this->readJson($json)));
     }
 
     /**

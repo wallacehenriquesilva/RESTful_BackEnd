@@ -28,9 +28,7 @@ class CursoService
      */
     public function findAll()
     {
-        $cursoBusiness = new CursoBusiness();
-        $collection = $cursoBusiness->findAll();
-        return json_encode($collection);
+        return json_encode($this->cursoBusiness->findAll());
     }
 
     /**
@@ -42,9 +40,7 @@ class CursoService
         $idAluno = $_GET['idAluno'];
         $this->cursoDto->getIdInstituicao($_GET['idInstituicao']);
 
-        $cursoBusiness = new CursoBusiness();
-        $collection = $cursoBusiness->find($this->cursoDto, $idAluno);
-        return json_encode($collection);
+        return json_encode($this->cursoBusiness->find($this->cursoDto, $idAluno));
     }
 
 
@@ -55,9 +51,7 @@ class CursoService
      */
     public function insert($json)
     {
-        $cursoBusiness = new CursoBusiness();
-        $collection = $cursoBusiness->insert($this->readJson($json));
-        return json_encode($collection);
+        return json_encode($this->cursoBusiness->insert($this->readJson($json)));
     }
 
 
@@ -68,9 +62,7 @@ class CursoService
      */
     public function update($json)
     {
-        $cursoBusiness = new CursoBusiness();
-        $collection = $cursoBusiness->update($this->readJson($json));
-        return json_encode($collection);
+        return json_encode($this->cursoBusiness->update($this->readJson($json)));
     }
 
 
@@ -81,14 +73,7 @@ class CursoService
      */
     public function delete($json)
     {
-        $curso = json_decode($json, true);
-
-        $this->cursoDto->setIdCurso($curso['idCurso']);
-        $this->cursoDto->setIdInstituicao($curso['idInstituicao']);
-
-        $cursoBusiness = new CursoBusiness();
-        $collection = $cursoBusiness->delete($this->cursoDto);
-        return json_encode($collection);
+        return json_encode($this->cursoBusiness->delete($this->readJson($json)));
     }
 
     public function readJson($json): CursoDto

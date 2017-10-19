@@ -28,9 +28,7 @@ class UsuarioService
         $this->usuarioDto->setLogin($_GET['login']);
         $this->usuarioDto->setSenha($_GET['senha']);
 
-        $usuarioBusiness = new UsuarioBusiness();
-        $collection = $usuarioBusiness->login($this->usuarioDto);
-        return json_encode($collection);
+        return json_encode($this->usuarioBusiness->login($this->usuarioDto));
     }
 }
 

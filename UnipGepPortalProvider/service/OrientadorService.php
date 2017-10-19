@@ -27,9 +27,7 @@ class OrientadorService
      */
     public function findAll()
     {
-        $orientadorBusiness = new OrientadorBusiness();
-        $collection = $orientadorBusiness->findAll();
-        return json_encode($collection);
+        return json_encode($this->orientadorBusiness->findAll());
     }
 
 
@@ -42,9 +40,7 @@ class OrientadorService
         $this->orientadorDto->setIdOrientador($_GET['idOrientador']);
         $this->orientadorDto->setIdInstituicao($_GET['idInstituicao']);
 
-        $orientadorBusiness = new OrientadorBusiness();
-        $collection = $orientadorBusiness->find($this->orientadorDto);
-        return json_encode($collection);
+        return json_encode($this->orientadorBusiness->find($this->orientadorDto));
     }
 
 
@@ -55,9 +51,7 @@ class OrientadorService
      */
     public function insert($json)
     {
-        $orientadorBusiness = new OrientadorBusiness();
-        $collection = $orientadorBusiness->insert(readJson($json));
-        return json_encode($collection);
+        return json_encode($this->orientadorBusiness->insert(readJson($json)));
     }
 
     /**
@@ -67,9 +61,7 @@ class OrientadorService
      */
     public function update($json)
     {
-        $orientadorBusiness = new OrientadorBusiness();
-        $collection = $orientadorBusiness->update(readJson($json));
-        return json_encode($collection);
+        return json_encode($this->orientadorBusiness->update(readJson($json)));
     }
 
     /**
@@ -79,9 +71,7 @@ class OrientadorService
      */
     public function delete($json)
     {
-        $orientadorBusiness = new OrientadorBusiness();
-        $collection = $orientadorBusiness->delete(readJson($json));
-        return json_encode($collection);
+        return json_encode($this->orientadorBusiness->delete(readJson($json)));
     }
 
     /**
@@ -92,9 +82,7 @@ class OrientadorService
     {
         $this->orientadorDto->setIdInstituicao($_GET['idInstituicao']);
 
-        $orientadorBusiness = new OrientadorBusiness();
-        $collection = $orientadorBusiness->rank5($this->orientadorDto);
-        return json_encode($collection);
+        return json_encode($this->orientadorBusiness->rank5($this->orientadorDto));
     }
 
     /**
@@ -105,9 +93,7 @@ class OrientadorService
     {
         $this->orientadorDto->setIdInstituicao($_GET['idInstituicao']);
 
-        $orientadorBusiness = new OrientadorBusiness();
-        $collection = $orientadorBusiness->status($this->orientadorDto);
-        return json_encode($collection);
+        return json_encode($this->orientadorBusiness->status($this->orientadorDto));
     }
 
 
