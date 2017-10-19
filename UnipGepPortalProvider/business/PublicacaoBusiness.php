@@ -9,7 +9,7 @@ require_once("interface/PublicacaoInterface.php");
  * @author Wallace e Cia
  *
  */
-class PublicacaoBusiness 
+class PublicacaoBusiness
 {
 
     public $con;
@@ -19,7 +19,7 @@ class PublicacaoBusiness
         $this->con = new Factory();
     }
 
-      /**
+    /**
      * Função responsável por pesquisar todas as publicações.
      * @return String json contendo os dados das publicações.
      */
@@ -47,9 +47,7 @@ class PublicacaoBusiness
         return $collection;
     }
 
-
-
-   /**
+    /**
      * Função responsável por inserir publicacoes.
      * @param $json String json contendo os dados da request.
      * @return String json contendo a resposta da solicitação de inserção.
@@ -71,15 +69,14 @@ class PublicacaoBusiness
 
         $query = "INSERT INTO `publicacao` (`idPublicacao`, `idInstituicao`, `tipo`, `dataPublicacao`, `titulo`, `resumo`, `palavrasChave`, `ativo`) VALUES (NULL, '$idInstituicao', '$tipo', '$dataPublicacao', '$titulo', '$resumo', '$palavrasChave', '$ativo');";
 
-        $stmt =  $this->con->getConnection()->prepare($query);
-     
+        $stmt = $this->con->getConnection()->prepare($query);
+
         $collection = $stmt->execute();
 
         return $collection;
     }
 
-
- /**
+    /**
      * Função responsável por realizar o update dos dados da publicacao.
      * @param $json String json contendo os dados da request.
      * @return string json contendo a resposta da solicitação de update da publicacao.
@@ -96,9 +93,9 @@ class PublicacaoBusiness
         $resumo = $publicacao[0]['resumo'];
         $palavrasChave = $publicacao[0]['palavrasChave'];
         $ativo = $publicacao[0]['ativo'];
-        
+
         $query = "UPDATE `publicacao` SET  `idInstituicao` = '$idInstituicao', `tipo` = '$tipo', `dataPublicacao` = '$dataPublicacao', `titulo` = '$titulo', `resumo` = '$resumo', `palavrasChave` = '$palavrasChave', `ativo` = '$ativo' WHERE `idAluno` = $idAluno AND `idInstituicao` = $idInstituicao;;";
-        
+
         $rs = $this->con->getConnection()->prepare($query);
 
         $collection = $rs->execute();
@@ -106,10 +103,7 @@ class PublicacaoBusiness
         return $collection;
     }
 
-
-
-
-     /**
+    /**
      * Função responsávle por realizar a exclusão da publicação.
      * @param $json String json contendo os dados da request.
      * @return String json contendo a resposta da solicitação de exclusão.
@@ -120,9 +114,9 @@ class PublicacaoBusiness
 
         $idPublicacao = $publicacao[0]['idPublicacao'];
         $idPublicacao = $publicacao[0]['idInstituicao'];
-    
+
         $query = "DELETE FROM `publicacao` WHERE `idPublicacao` = $idPublicacao AND `idInstituicao` = $idInstituicao;";
-        
+
         $rs = $this->con->getConnection()->prepare($query);
 
         $collection = $rs->execute();

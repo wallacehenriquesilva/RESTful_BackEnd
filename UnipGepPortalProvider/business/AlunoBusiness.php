@@ -1,6 +1,7 @@
 <?php
 require 'vendor/autoload.php';
 require_once("util/Factory.php");
+require_once("model/AlunoDto.php");
 
 /**
  * @author Wallace e Cia
@@ -8,7 +9,6 @@ require_once("util/Factory.php");
  */
 class AlunoBusiness
 {
-
     public $con;
 
     public function AlunoBusiness()
@@ -30,58 +30,51 @@ class AlunoBusiness
     }
 
 
-
     /**
-     * Função responsável por pesquisar todos os dados do aluno logado por qualquer campo. 
-     * @return String json contando os dados do aluno logado.
+     * <p> Função responsável por pesquisar todos os dados do aluno logado por qualquer campo. </p>
+     * @param AlunoDto $alunoDto dto dos dados do aluno a ser consultado.
+     * @return array json contando os dados do aluno logado.
      */
-    public function find()
+    public function find(AlunoDto $alunoDto)
     {
-        
-        $idAluno = $_GET['idAluno'];
-        $idInstituicao = $_GET['idInstituicao'];
-        $matricula = $_GET['matricula'];
-        $nome = $_GET['nome'];
-        $sexo = $_GET['sexo'];
-        $dataNascimento =  $_GET['dataNascimento'];
-        $cpf = $_GET['cpf'];
-
-        $query = "SELECT * FROM aluno WHERE `idAluno` = $idAluno AND `idInstituicao` = $idInstituicao AND (`matricula` = '$matricula' OR `nome` = '$nome' OR `sexo` = '$sexo' OR `dataNascimento` = '$dataNascimento' OR `cpf` = '$cpf')";
+        $query = "SELECT * FROM aluno"
+            . " WHERE `idAluno` = $alunoDto->getIdAluno()"
+            . " AND `idInstituicao` = $alunoDto->getIdInstituica()"
+            . " AND (`matricula` = $alunoDto->getMatricula()"
+            . " OR `nome` = $alunoDto->getNome()"
+            . " OR `sexo` = $alunoDto->getSexo()"
+            . " OR `dataNascimento` = $alunoDto->getDataNasciment()"
+            . " OR `cpf` = $alunoDto->getCpf())";
         $rs = $this->con->getConnection()->query($query);
 
-
-        if($rs){
+        if ($rs) {
             $collection = $rs->fetchAll(PDO::FETCH_OBJ);
-        }else{
+        } else {
             echo "Erro";
         }
         return $collection;
     }
 
-
-
     /**
      * Função responsável por executar a query e inserir novos alunos
-     * @param $json String json contendo os dados da request.
+     * @param AlunoDto $alunoDto dto dos dados do aluno que sera inserido na base de dados.
      * @return String json contendo a resposta do server após a inserção.
      */
-    public function insert($json)
+    public function insert(AlunoDto $alunoDto)
     {
-        $aluno = json_decode($json, true);
+        $query = "INSERT INTO `aluno`"
+            . " (`idAluno`, `idOrientador`, `idInstituicao`, `matricula`, `nome`, `sexo`, `dataNascimento`, `cpf`, `ativo`) "
+            . "VALUES (NULL, $alunoDto->getIdOrientador(), "
+            . " $alunoDto->getIdInstituicao(), "
+            . "$alunoDto->getMatricula(),g"
+            . "$alunoDto->getNomeetSexo"
+            . "$alunoDto->getSexo()"
+            . "$alunoDto->getDataNascimento(), "
+            . "$alunoDto->getCpf(), "
+            . "$alunoDto->getAtivo());";
 
-        $idOrientador = $aluno[0]['idOrientador'];
-        $idInstituicao = $aluno[0]['idInstituicao'];
-        $matricula = $aluno[0]['matricula'];
-        $nome = $aluno[0]['nome'];
-        $sexo = $aluno[0]['sexo'];
-        $dataNascimento = $aluno[0]['dataNascimento'];
-        $cpf = $aluno[0]['cpf'];
-        $ativo = $aluno[0]['ativo'];
+        $stmt = $this->con->getConnection()->prepare($query);
 
-        $query = "INSERT INTO `aluno` (`idAluno`, `idOrientador`, `idInstituicao`, `matricula`, `nome`, `sexo`, `dataNascimento`, `cpf`, `ativo`) VALUES (NULL, '$idOrientador', '$idInstituicao', '$matricula', '$nome', '$sexo', '$dataNascimento', '$cpf', '$ativo');";
-
-        $stmt =  $this->con->getConnection()->prepare($query);
-     
         $collection = $stmt->execute();
 
         return $collection;
@@ -90,83 +83,84 @@ class AlunoBusiness
 
     /**
      * Função responsável por executar a query e realizar o update de dados do aluno.
-     * @param $json String json contendo os dados da request.
+     * @param AlunoDto $alunoDto dto dos dados do aluno que sera alterado na base de dados.
      * @return String json contendo a resposta da solicitação de update do aluno.
      */
-    public function update($json)
+    public function update(AlunoDto $alunoDto)
     {
-        $aluno = json_decode($json, true);
+        $query = "UPDATE `aluno` SET "
+            . " `nome` = $alunoDto->getNome(), "
+            . "`sexo` = $alunoDto->getSexo(), "
+            . "`dataNascimento` = $alunoDto->getDataNascimento(), "
+            . "`cpf` = $alunoDto->getCpf() "
+            . "WHERE `idAluno` = $alunoDto->getIdAluno() "
+            . "AND `idInstituicao` = $alunoDto->getIdInstituicao();";
 
-        $idAluno = $aluno[0]['idAluno'];
-        $idInstituicao = $aluno[0]['idInstituicao'];
-        $nome = $aluno[0]['nome'];
-        $sexo = $aluno[0]['sexo'];
-        $dataNascimento = $aluno[0]['dataNascimento'];
-        $cpf = $aluno[0]['cpf'];
-        
-        $query = "UPDATE `aluno` SET  `nome` = '$nome', `sexo` = '$sexo', `dataNascimento` = '$dataNascimento', `cpf` = '$cpf' WHERE `idAluno` = $idAluno AND `idInstituicao` = $idInstituicao;";
-        
         $rs = $this->con->getConnection()->prepare($query);
 
         $collection = $rs->execute();
 
         return $collection;
     }
-
-
 
 
     /**
      * Função responsável por executar a query e realizar a contagem dos alunos ativos e inativos.
+     * @param AlunoDto $alunoDto dto dos dados do aluno que sera apagado da base de dados.
      * @return String json contendo o número de alunos ativos e inativos.
      */
-    public function delete($json)
+    public function delete(AlunoDto $alunoDto)
     {
-        $aluno = json_decode($json, true);
+        $query = "DELETE FROM `aluno` "
+            . "WHERE `idAluno` = $alunoDto->getIdAluno() "
+            . "AND `idInstituicao` = $alunoDto->getIdInstituicao();";
 
-        $idAluno = $aluno[0]['idAluno'];
-        $idInstituicao = $aluno[0]['idInstituicao'];
-    
-        $query = "DELETE FROM `aluno` WHERE `idAluno` = $idAluno AND `idInstituicao` = $idInstituicao;";
-        
         $rs = $this->con->getConnection()->prepare($query);
 
         $collection = $rs->execute();
         return $collection;
     }
 
-     /**
+    /**
      * Função responsável por executar a query e selecionar os 5 alunos com mais publicações.
+     * @param AlunoDto $alunoDto dto utilizado parar guardar o id da instituição que sera feito o top5.
      * @return String json contendo dados dos 5 alunos com mais publicações.
      */
-    public function rank5()
+    public function rank5(AlunoDto $alunoDto)
     {
-        
-        $idInstituicao = $_GET['idInstituicao'];
+        $query = "SELECT * FROM "
+            . "(SELECT COUNT(*) AS nPublicacoes, "
+            . "a.nome FROM aluno AS a "
+            . "INNER JOIN publicacaoaluno AS pa ON a.idAluno = pa.idAluno "
+            . "WHERE a.idInstituicao = $alunoDto->getIdInstituicao() "
+            . "GROUP BY a.idAluno) AS tabelaResultado "
+            . "ORDER BY tabelaResultado.nPublicacoes DESC LIMIT 5;";
 
-        $query = "SELECT * FROM (SELECT COUNT(*) AS nPublicacoes, a.nome from aluno as a inner join publicacaoaluno as pa on a.idAluno = pa.idAluno where a.idInstituicao = $idInstituicao group by a.idAluno) as tabelaResultado ORDER BY tabelaResultado.nPublicacoes DESC LIMIT 5;";
         $rs = $this->con->getConnection()->query($query);
 
         $collection = $rs->fetchAll(PDO::FETCH_OBJ);
         return $collection;
     }
 
-     /**
+    /**
      * Função responsável por executar a query realizar a contagem dos alunos ativos e inativos.
+     * @param AlunoDto $alunoDto dto utilizado parar guardar o id da instituição que sera feito o select de
+     * comparativo ativos/inativos.
      * @return String json contendo o número de alunos ativos e inativos.
      */
-    public function status()
+    public function status(AlunoDto $alunoDto)
     {
-        
-        $idInstituicao = $_GET['idInstituicao'];
-
-        $query = "SELECT (SELECT COUNT(*) FROM aluno WHERE  ativo = 'N' AND idInstituicao = idInstituicao) AS alunosInativos, (SELECT COUNT(*) FROM aluno WHERE ativo = 'S' AND idInstituicao = $idInstituicao) AS alunosAtivos;";
+        $query = "SELECT (SELECT COUNT(*) FROM aluno "
+            . "WHERE  ativo = 'N' "
+            . "AND idInstituicao = idInstituicao) AS alunosInativos, "
+            . "(SELECT COUNT(*) FROM aluno "
+            . "WHERE ativo = 'S' "
+            . "AND idInstituicao = $alunoDto->getIdInstituicao()) AS alunosAtivos;";
         $rs = $this->con->getConnection()->query($query);
 
         $collection = $rs->fetchAll(PDO::FETCH_OBJ);
         return $collection;
     }
-
 }
 
 ?>

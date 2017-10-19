@@ -14,24 +14,24 @@ class PublicacaoService implements PublicacaoInterface
     var $publicacaoBusiness;
 
     /**
-    * Método construtor da classe, que realiza o adapter.
-    *
-    */
+     * Método construtor da classe, que realiza o adapter.
+     *
+     */
     public function PublicacaoService($tipo)
     {
-       switch($tipo){
-            case "orientador": 
+        switch ($tipo) {
+            case "orientador":
                 $this->publicacaoBusiness = new OrientadorPublicacaoBusiness();
-            break;
+                break;
             case "aluno":
                 $this->publicacaoBusiness = new AluPublicacaoBusiness();
-            break;
+                break;
             case "admin":
                 $this->publicacaoBusiness = new PublicacaoBusiness();
-            break;
+                break;
         }
 
-        
+
     }
 
 
@@ -44,7 +44,8 @@ class PublicacaoService implements PublicacaoInterface
         $collection = $this->publicacaoBusiness->findAll();
         return json_encode($collection);
     }
-     /**
+
+    /**
      * Função responsável por pesquisar as publicações do usuário logado.
      * @return String json contando os dados do publicacao do usuário logado.
      */
@@ -79,7 +80,6 @@ class PublicacaoService implements PublicacaoInterface
     }
 
 
-
     /**
      * Função responsávle por realizar a exclusão da publicação.
      * @param $json String json contendo os dados da request.
@@ -91,4 +91,5 @@ class PublicacaoService implements PublicacaoInterface
         return json_encode($collection);
     }
 }
+
 ?>

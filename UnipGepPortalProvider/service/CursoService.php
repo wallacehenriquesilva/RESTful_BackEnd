@@ -1,8 +1,9 @@
 <?php
 require_once("business/CursoBusiness.php");
+require_once("model/CursoDto.php");
 
 /**
- * 
+ *
  * @author Wallace e Cias
  *
  */
@@ -10,13 +11,15 @@ class CursoService
 {
 
     var $cursoBusiness;
+    var $cursoDto;
 
     /**
-    * Método construtor da classe CursoService
-    */
+     * Método construtor da classe CursoService
+     */
     public function CursoService()
     {
         $this->cursoBusiness = new CursoBusiness();
+        $this->cursoDto = new CursoDto();
     }
 
     /**
@@ -30,14 +33,17 @@ class CursoService
         return json_encode($collection);
     }
 
-     /**
+    /**
      * Função responsável por pesquisar todas os dados dos cursos da instituição do usuário logado.
      * @return String json contando os dados do curso do aluno logado.
      */
     public function find()
     {
+        $idAluno = $_GET['idAluno'];
+        $this->cursoDto->getIdInstituicao($_GET['idInstituicao']);
+
         $cursoBusiness = new CursoBusiness();
-        $collection = $cursoBusiness->find();
+        $collection = $cursoBusiness->find($this->cursoDto, $idAluno);
         return json_encode($collection);
     }
 
@@ -50,7 +56,7 @@ class CursoService
     public function insert($json)
     {
         $cursoBusiness = new CursoBusiness();
-        $collection = $cursoBusiness->insert($json);
+        $collection = $cursoBusiness->insert($this->readJson($json));
         return json_encode($collection);
     }
 
@@ -63,10 +69,9 @@ class CursoService
     public function update($json)
     {
         $cursoBusiness = new CursoBusiness();
-        $collection = $cursoBusiness->update($json);
+        $collection = $cursoBusiness->update($this->readJson($json));
         return json_encode($collection);
     }
-
 
 
     /**
@@ -76,9 +81,28 @@ class CursoService
      */
     public function delete($json)
     {
+        $curso = json_decode($json, true);
+
+        $this->cursoDto->setIdCurso($curso['idCurso']);
+        $this->cursoDto->setIdInstituicao($curso['idInstituicao']);
+
         $cursoBusiness = new CursoBusiness();
-        $collection = $cursoBusiness->delete($json);
+        $collection = $cursoBusiness->delete($this->cursoDto);
         return json_encode($collection);
     }
+
+    public function readJson($json): CursoDto
+    {
+        $curso = json_decode($json, true);
+
+        $this->cursoDto->setIdCurso($curso['idCurso']);
+        $this->cursoDto->setIdInstituicao($curso['idInstituicao']);
+        $this->cursoDto->setNome($curso['nome']);
+        $this->cursoDto->setDescricao($curso['descricao']);
+        $this->cursoDto->setAtivo($curso['ativo']);
+
+        return $this->cursoDto;
+    }
 }
+
 ?>

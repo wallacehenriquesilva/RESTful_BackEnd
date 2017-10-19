@@ -1,5 +1,6 @@
 <?php
 require_once("business/AlunoBusiness.php");
+require_once("model/AlunoDto.php");
 
 /**
  * Classe AlunoService responsável por fazer a conexão com a busnisses e pegar seu retorno.
@@ -10,6 +11,7 @@ class AlunoService
 {
 
     var $alunoBusiness;
+    var $alunoDto;
 
     /**
      * Método construtor da classe Aluno service.
@@ -17,6 +19,7 @@ class AlunoService
     public function AlunoService()
     {
         $this->alunoBusiness = new AlunoBusiness();
+        $this->alunoDto = new AlunoDto();
     }
 
     /**
@@ -25,7 +28,6 @@ class AlunoService
      */
     public function findAll()
     {
-        header("Content-Type: application/json");
         $alunoBusiness = new AlunoBusiness();
         $collection = $alunoBusiness->findAll();
         return json_encode($collection);
@@ -38,9 +40,17 @@ class AlunoService
      */
     public function find()
     {
-        header("Content-Type: application/json");
+
+        $this->alunoDto->setIdAluno($_GET['idAluno']);
+        $this->alunoDto->setIdInstituicao($_GET['idInstituicao']);
+        $this->alunoDto->setMatricula($_GET['matricula']);
+        $this->alunoDto->setNome($_GET['nome']);
+        $this->alunoDto->setSexo($_GET['sexo']);
+        $this->alunoDto->setDataNascimento($_GET['dataNascimento']);
+        $this->alunoDto->setCpf($_GET['cpf']);
+
         $alunoBusiness = new AlunoBusiness();
-        $collection = $alunoBusiness->find();
+        $collection = $alunoBusiness->find($this->alunoDto);
         return json_encode($collection);
     }
 
@@ -53,7 +63,7 @@ class AlunoService
     public function insert($json)
     {
         $alunoBusiness = new AlunoBusiness();
-        $collection = $alunoBusiness->insert($json);
+        $collection = $alunoBusiness->insert($this->readJson($json));
         return json_encode($collection);
     }
 
@@ -66,10 +76,9 @@ class AlunoService
     public function update($json)
     {
         $alunoBusiness = new AlunoBusiness();
-        $collection = $alunoBusiness->update($json);
+        $collection = $alunoBusiness->update($this->readJson($json));
         return json_encode($collection);
     }
-
 
 
     /**
@@ -80,7 +89,7 @@ class AlunoService
     public function delete($json)
     {
         $alunoBusiness = new AlunoBusiness();
-        $collection = $alunoBusiness->delete($json);
+        $collection = $alunoBusiness->delete($this->readJson($json));
         return json_encode($collection);
     }
 
@@ -90,8 +99,10 @@ class AlunoService
      */
     public function rank5()
     {
+        $this->alunoDto->setIdInstituicao($_GET['idInstituicao']);
+
         $alunoBusiness = new AlunoBusiness();
-        $collection = $alunoBusiness->rank5();
+        $collection = $alunoBusiness->rank5($this->alunoDto);
         return json_encode($collection);
     }
 
@@ -101,9 +112,34 @@ class AlunoService
      */
     public function status()
     {
+        $this->alunoDto->setIdInstituicao($_GET['idInstituicao']);
+
         $alunoBusiness = new AlunoBusiness();
-        $collection = $alunoBusiness->status();
+        $collection = $alunoBusiness->status($this->alunoDto);
         return json_encode($collection);
     }
+
+    /**
+     * Converte o json no dto do aluno.
+     * @param $json Json contendo os dados da requisição
+     * @return AlunoDto retorna do dto do aluno.
+     */
+    public function readJson($json): AlunoDto
+    {
+        $aluno = json_decode($json, true);
+
+        $this->alunoDto->setIdAluno($aluno[0]['idAluno']);
+        $this->alunoDto->setIdOrientador($aluno[0]['idOrientador']);
+        $this->alunoDto->setIdInstituicao($aluno[0]['idInstituicao']);
+        $this->alunoDto->setMatricula($aluno[0]['matricula']);
+        $this->alunoDto->setNome($aluno[0]['nome']);
+        $this->alunoDto->setSexo($aluno[0]['sexo']);
+        $this->alunoDto->setDataNascimento($aluno[0]['dataNascimento']);
+        $this->alunoDto->setCpf($aluno[0]['cpf']);
+        $this->alunoDto->setAtivo($aluno[0]['ativo']);
+
+        return $this->alunoDto;
+    }
 }
+
 ?>

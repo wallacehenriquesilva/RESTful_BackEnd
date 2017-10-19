@@ -1,5 +1,6 @@
 <?php
 require_once("business/UsuarioBusiness.php");
+require_once("model/UsuarioDto.php");
 
 /**
  * Classe de login do usuário.
@@ -10,10 +11,12 @@ class UsuarioService
 {
 
     var $usuarioBusiness;
+    var $usuarioDto;
 
     public function usuarioService()
     {
         $this->usuarioBusiness = new UsuarioBusiness();
+        $this->usuarioDto = new UsuarioDto();
     }
 
     /**
@@ -22,10 +25,13 @@ class UsuarioService
      */
     public function login()
     {
-        header("Content-Type: application/json");
+        $this->usuarioDto->setLogin($_GET['login']);
+        $this->usuarioDto->setSenha($_GET['senha']);
+
         $usuarioBusiness = new UsuarioBusiness();
-        $collection = $usuarioBusiness->login();
+        $collection = $usuarioBusiness->login($this->usuarioDto);
         return json_encode($collection);
     }
 }
+
 ?>

@@ -1,6 +1,7 @@
 <?php
 require 'vendor/autoload.php';
 require_once("util/Factory.php");
+require_once("model/OrientadorDto.php");
 
 /**
  * @author Wallace e Cia
@@ -11,19 +12,19 @@ class OrientadorBusiness
 
     public $con;
 
-/**
-    * Método construtor da classe que setta o valor da orientadorBusiness.
+    /**
+     * Método construtor da classe que setta o valor da orientadorBusiness.
      * e realiza a conexão com o BD.
-    */
+     */
     public function OrientadorBusiness()
     {
         $this->con = new Factory();
     }
 
     /**
-    * Função responsável por pesquisar todos os orientadores.
-    * @return String json com todos os orientadores.
-    */
+     * Função responsável por pesquisar todos os orientadores.
+     * @return String json com todos os orientadores.
+     */
     public function findAll()
     {
         $query = "select * from orientador";
@@ -33,74 +34,60 @@ class OrientadorBusiness
         return $collection;
     }
 
- /**
-     * Função responsável por retornar os dados do orientador logado.
-     * @return string json contando os dados do orientador logado.
-     */
-
     /**
-     * Pesquisa todos os Alunos
-     * @return String json contendo os Alunos
+     * Pesquisa todos os Orientadores
+     * @param OrientadorDto $orientadorDto dto do orientador a ser pesquisado.
+     * @return String json contendo os Orientadores
      */
-    public function find()
+    public function find(OrientadorDto $orientadorDto)
     {
-        
-        $idOrientador = $_GET['idOrientador'];
-        $idInstituicao = $_GET['idInstituicao'];
-
-        $query = "select * from orientador where idOrientador = $idOrientador and idInstituicao = $idInstituicao";
+        $query = "SELECT * FROM orientador "
+            . "WHERE idOrientador = $orientadorDto->getIdOrientador() "
+            . "AND idInstituicao = $orientadorDto->getIdInstituicao()";
         $rs = $this->con->getConnection()->query($query);
 
         $collection = $rs->fetchAll(PDO::FETCH_OBJ);
         return $collection;
     }
 
-
     /**
      * Função responsável por inserir um orientador.
-     * @param $json String json contendo os dados da request.
+     * @param OrientadorDto $orientadorDto dto do orientador que sera inserido na base.
      * @return String json contendo a resposta da solicitação de inserção.
      */
-    public function insert($json)
+    public function insert(OrientadorDto $orientadorDto)
     {
-        $orientador = json_decode($json, true);
+        $query = "INSERT INTO `orientador` "
+            . "(`idOrientador`, `idInstituicao`, `nome`, `cpf`, `titulacao`, `ativo`) "
+            . "VALUES (NULL, $orientadorDto->getIdInstituicao(), "
+            . "$orientadorDto->getNome(), "
+            . "$orientadorDto->getCpf(), "
+            . "$orientadorDto->getTitulacao(), "
+            . "$orientadorDto->getAtivo());";
 
-        $idOrientador = $orientador[0]['idOrientador'];
-        $idInstituicao = $orientador[0]['idInstituicao'];
-        $nome = $orientador[0]['nome'];
-        $cpf = $orientador[0]['cpf'];
-        $titulacao = $orientador[0]['titulacao'];
-        $ativo = $orientador[0]['ativo'];
+        $stmt = $this->con->getConnection()->prepare($query);
 
-        $query = "INSERT INTO `orientador` (`idOrientador`, `idInstituicao`, `nome`, `cpf`, `titulacao`, `ativo`) VALUES (NULL, '$idInstituicao', '$nome', '$cpf', '$titulacao', '$ativo');";
-
-        $stmt =  $this->con->getConnection()->prepare($query);
-     
         $collection = $stmt->execute();
 
         return $collection;
     }
 
 
- /**
+    /**
      * Função responsável por realizar o update de dados do aluno.
-     * @param $json String json contendo os dados da request.
+     * @param OrientadorDto $orientadorDto dto do orientador que sera alterado na base.
      * @return string json contendo a resposta da solicitação de update do aluno.
      */
-    public function update($json)
+    public function update(OrientadorDto $orientadorDto)
     {
-        $orientador = json_decode($json, true);
+        $query = "UPDATE `orientador` SET  "
+            . "`nome` = $orientadorDto->getNome(), "
+            . "`cpf` = $orientadorDto->getCpf(), "
+            . "`titulacao` = $orientadorDto->getTitulacao(), "
+            . "`ativo` = $orientadorDto->getAtivo() "
+            . "WHERE `idOrientador` = $orientadorDto->getIdOrientador() "
+            . "AND `idInstituicao` = $orientadorDto->getIdInstituicao();";
 
-
-        $idOrientador = $orientador[0]['idOrientador'];
-        $idInstituicao = $orientador[0]['idInstituicao'];
-        $nome = $orientador[0]['nome'];
-        $cpf = $orientador[0]['cpf'];
-        $titulacao = $orientador[0]['titulacao'];
-        $ativo = $orientador[0]['ativo'];
-        
-        $query = "UPDATE `orientador` SET  `nome` = '$nome', `cpf` = '$cpf', `titulacao` = '$titulacao', `ativo` = '$ativo' WHERE `idOrientador` = $idOrientador AND `idInstituicao` = $idInstituicao;";
-        
         $rs = $this->con->getConnection()->prepare($query);
 
         $collection = $rs->execute();
@@ -108,22 +95,17 @@ class OrientadorBusiness
         return $collection;
     }
 
-
-
-  /**
+    /**
      * Função responsável por excluir um orientador.
-     * @param $json String json contendo os dados da request.
+     * @param OrientadorDto $orientadorDto dto do orientador que sera apagado da base.
      * @return String json contendo a resposta da solicitação de exclusão.
      */
-    public function delete($json)
+    public function delete(OrientadorDto $orientadorDto)
     {
-        $orientador = json_decode($json, true);
+        $query = "DELETE FROM `orientador` "
+            . "WHERE `idOrientador` = $orientadorDto->getIdOrientador()"
+            . "AND `idInstituicao` = $orientadorDto->getIdInstituicao();";
 
-        $idOrientador = $orientador[0]['idOrientador'];
-        $idInstituicao = $orientador[0]['idInstituicao'];
-    
-        $query = "DELETE FROM `orientador` WHERE `idOrientador` = $idOrientador AND `idInstituicao` = $idInstituicao;";
-        
         $rs = $this->con->getConnection()->prepare($query);
 
         $collection = $rs->execute();
@@ -132,14 +114,21 @@ class OrientadorBusiness
 
     /**
      * Função responsável por selecionar os 5 orientadores com mais publicações.
+     * @param OrientadorDto $orientadorDto dto com o id da instituição que sera feito o top 5.
      * @return String json contendo dados dos 5 orientadores com mais publicações.
      */
-    public function rank5()
+    public function rank5(OrientadorDto $orientadorDto)
     {
-        
-        $idInstituicao = $_GET['idInstituicao'];
+        $query = "SELECT * FROM "
+            . "(SELECT COUNT(*) AS nPublicacoes, o.nome "
+            . "FROM orientador "
+            . "AS o INNER JOIN publicacaoorientador AS po "
+            . "ON o.idOrientador = po.idOrientador "
+            . "WHERE o.idInstituicao = $orientadorDto->getIdInstituicao()"
+            . "GROUP BY o.idOrientador) AS tabelaResultado "
+            . "ORDER BY tabelaResultado.nPublicacoes DESC "
+            . "LIMIT 5;";
 
-        $query = "SELECT * FROM (SELECT COUNT(*) AS nPublicacoes, o.nome from orientador as o inner join publicacaoorientador as po on o.idOrientador = po.idOrientador where o.idInstituicao = $idInstituicao group by o.idOrientador) as tabelaResultado ORDER BY tabelaResultado.nPublicacoes DESC LIMIT 5;";
         $rs = $this->con->getConnection()->query($query);
 
         $collection = $rs->fetchAll(PDO::FETCH_OBJ);
@@ -148,21 +137,23 @@ class OrientadorBusiness
 
     /**
      * Função responsável por retornar por realizar a contagem dos orientadores ativos e inativos.
+     * @param OrientadorDto $orientadorDto dto com o id da instituição que sera feito o select de status.
      * @return String json contendo a contagem ativos/inativos.
      */
-     public function status()
+    public function status(OrientadorDto $orientadorDto)
     {
-        
-        $idInstituicao = $_GET['idInstituicao'];
+        $query = "SELECT (SELECT COUNT(*) FROM orientador "
+            . "WHERE  ativo = 'N' "
+            . "AND idInstituicao = $orientadorDto->getIdInstituicao()) AS orientadoresInativos, "
+            . "(SELECT COUNT(*) FROM orientador "
+            . "WHERE ativo = 'S' "
+            . "AND idInstituicao = $orientadorDto->getIdInstituicao()) AS orientadoresAtivos;";
 
-        $query = "SELECT (SELECT COUNT(*) FROM orientador WHERE  ativo = 'N' AND idInstituicao = $idInstituicao) AS orientadoresInativos, (SELECT COUNT(*) FROM orientador WHERE ativo = 'S' AND idInstituicao = $idInstituicao) AS orientadoresAtivos;";
         $rs = $this->con->getConnection()->query($query);
 
         $collection = $rs->fetchAll(PDO::FETCH_OBJ);
         return $collection;
     }
-
-
 }
 
 ?>

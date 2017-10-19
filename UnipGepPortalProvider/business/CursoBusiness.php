@@ -1,6 +1,7 @@
 <?php
 
 require_once("util/Factory.php");
+require_once("model/CursoDto.php");
 
 /**
  * @author Wallace e Cia
@@ -13,15 +14,15 @@ class CursoBusiness
 
 
     /**
-    * Método construtor da classe CursoBusiness
-    * responsável por realizar a conexão com o BD.
-    */
+     * Método construtor da classe CursoBusiness
+     * responsável por realizar a conexão com o BD.
+     */
     public function CursoBusiness()
     {
         $this->con = new Factory();
     }
 
-     /**
+    /**
      * Função responsável por pesquisar todos os cursos.
      * @return String json com os dados dos cursos.
      */
@@ -38,11 +39,14 @@ class CursoBusiness
      * Função responsável por pesquisar todas os dados dos cursos da instituição do usuário logado.
      * @return String json contando os dados do curso do aluno logado.
      */
-    public function find()
+    public function find(CursoDto $cursoDto, int $idAluno)
     {
-        $idAluno = $_GET['idAluno'];
-        $idInstituicao = $_GET['idInstituicao'];
-        $query = "SELECT * FROM Curso WHERE `idAluno` = $idAluno AND `idInstituicao` = $idInstituicao;";
+        $query = "SELECT * FROM Curso AS c "
+            . "INNER JOIN CursoAluno AS ca"
+            . "ON ca.idCurso = c.idCurso"
+            . "WHERE `ca.idAluno` = $idAluno "
+            . "AND `cidInstituicao` = $cursoDto->getIdInstituicao();";
+
         $rs = $this->con->getConnection()->query($query);
 
         $collection = $rs->fetchAll(PDO::FETCH_OBJ);
@@ -51,44 +55,34 @@ class CursoBusiness
 
     /**
      * Função responsável por inserir cursos.
-     * @param $json String json contendo os dados da request.
+     * @param CursoDto $cursoDto dto do curso que será inserido na base de dados.
      * @return String json contendo a resposta da solicitação de inserção de curso.
      */
-    public function insert($json)
+    public function insert(CursoDto $cursoDto)
     {
-        $curso = json_decode($json, true);
+        $query = "INSERT INTO `curso` "
+            . "(`idInstituicao`, `nome`, `descricao`, `ativo`) "
+            . "VALUES ($cursoDto->getIdInstituicao(), $cursoDto->getNome(), $cursoDto->getDescricao(), $cursoDto->getAtivo());";
 
-        $idInstituicao = $curso['idInstituicao'];
-        $nome = $curso['nome'];
-        $descricao = $curso['descricao'];
-        $ativo = $curso['ativo'];
+        $stmt = $this->con->getConnection()->prepare($query);
 
-        $query = "INSERT INTO `curso` (`idInstituicao`, `nome`, `descricao`, `ativo`) VALUES ('$idInstituicao', '$nome', '$descricao', '$ativo');";
-
-        $stmt =  $this->con->getConnection()->prepare($query);
-     
         $collection = $stmt->execute();
 
         return $collection;
     }
 
-
     /**
      * Função responsável por realizar o update dos dados do curso.
-     * @param $json String json contendo os dados da request.
+     * @param CursoDto $cursoDto dto do curso que será alterado na base de dados.
      * @return String json contendo a resposta da solicitação de update do curso.
      */
-    public function update($json)
+    public function update(CursoDto $cursoDto)
     {
-        $curso = json_decode($json, true);
-
-        $idCurso = $curso['idCurso'];
-        $idInstituicao = $curso['idInstituicao'];
-        $nome = $curso['nome'];
-        $descricao = $curso['descricao'];
-        $ativo = $curso['ativo'];
-                
-        $query = "UPDATE `curso` SET  `nome` = '$nome', `descricao` = '$descricao' WHERE `idAluno` = $idAluno AND `idInstituicao` = $idInstituicao;";
+        $query = "UPDATE `curso` SET  "
+            . "`nome` = $cursoDto->getNome(), "
+            . "`descricao` = $cursoDto->getDescricao() "
+            . "WHERE `idCurso` = $cursoDto->getIdCurso() "
+            . "AND `idInstituicao` = $cursoDto->getIdInstituicao();";
 
         $rs = $this->con->getConnection()->prepare($query);
 
@@ -96,30 +90,24 @@ class CursoBusiness
 
         return $collection;
     }
-
-
 
 
     /**
      * Função responsável por realizar a exclusão de um curso.
-     * @param $json String json contendo os dados da request.
+     * @param CursoDto $cursoDto dto do curso que será apagado da base de dados.
      * @return String json contendo a resposta da solicitação de exclusão de curso.
      */
-    public function delete($json)
+    public function delete(CursoDto $cursoDto)
     {
-        $curso = json_decode($json, true);
+        $query = "DELETE FROM `Curso`"
+            . " WHERE `idCurso` = $cursoDto->getIdCurso() "
+            . "AND `idInstituicao` = $cursoDto->getIdInstituicao();";
 
-        $idCurso = $curso['idCurso'];
-        $idInstituicao = $curso['idInstituicao'];
-    
-        $query = "DELETE FROM `curso` WHERE `idCurso` = $idCurso AND `idInstituicao` = $idInstituicao;";
-        
         $rs = $this->con->getConnection()->prepare($query);
 
         $collection = $rs->execute();
         return $collection;
     }
-
 }
 
 ?>
